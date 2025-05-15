@@ -240,9 +240,13 @@ df = df1.merge(
 | Random Forest   | 0.8199   | 0.8395  | 0.2956      | 0.6692         | 0.4101   | 해석이 쉬우며 안정적인 기본 모델       |
 | Decision Tree   | 0.7624   | 0.6408  | 0.4297      | 0.4379         | 0.4338   | 단순하고 직관적인 의사결정 기반        |
 
+![alt text](readme_image/baseline_roc_curve.png)
+
 #### Feature Importance
 
-![alt text](readme_image/mage-5.png)
+![alt text](readme_image/image-5.png)
+
+![alt text](readme_image/cb_feature_importance.png)
 
 **개업률..? 점포수..? 일단 넘어갑시다..** 
 
@@ -285,7 +289,7 @@ df = df1.merge(
 
 * 그러나 모델 학습 및 피처 중요도 분석 결과 **개업률, 점포수 등 경쟁 강도와 관련된 변수들의 영향력이 훨씬 더 높게 나타남.**
 
-단순히 매출 데이터만이 아닌, **상권 내 경쟁 환경, 업종의 포화도, 점포 변동성 등 구조적 요인들이 폐업을 설명하는 데 있어 중요함 것**
+단순히 매출 데이터만이 아닌, **상권 내 경쟁 환경, 업종의 포화도, 점포 변동성 등 구조적 요인들이 폐업을 설명하는 데 있어 중요할 것**
 
 ---
 
