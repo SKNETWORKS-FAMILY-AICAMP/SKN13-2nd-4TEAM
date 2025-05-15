@@ -153,14 +153,19 @@ if uploaded_file:
 
     st.subheader("💡 선택한 컬럼 기반 인사이트")
     with st.expander("📌 폐업 위험 높은 그룹 분석"):
-        for col in selected_cols:
-            top_group = test_df.groupby(col)['폐업확률(%)'].mean().sort_values(ascending=False)
-            if not top_group.empty:
-                top_index = top_group.index[0]
-                top_value = top_group.iloc[0]
-                st.markdown(f"- **[{top_index}]**의 평균 폐업 확률이 가장 높음 (**{top_value:.2f}%**).")
-            else:
-                st.warning(f"{col} 컬럼에서 유효한 그룹이 없습니다.")
+        if selected_cols:
+            grouped_df = test_df.groupby(selected_cols)['폐업확률(%)'].mean().reset_index()
+            # 평균 폐업확률이 가장 높은 조합 찾기
+            top_row = grouped_df.sort_values(by='폐업확률(%)', ascending=False).iloc[0]
+
+            # 조합 문자열 생성
+            combo_desc = ", ".join([f"{col} **{top_row[col]}**" for col in selected_cols])
+            prob_value = top_row['폐업확률(%)']
+
+            st.markdown(f"- {combo_desc}의 평균 폐업 확률은 **{prob_value:.2f}%**입니다.")
+        else:
+            st.info("인사이트를 보기 위해 하나 이상의 컬럼을 선택하세요.")
+
 
     display_cols = selected_cols + ['폐업예측', '폐업확률(%)']
     filtered_df = test_df[display_cols] if selected_cols else test_df[['폐업예측', '폐업확률(%)']]
