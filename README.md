@@ -4,7 +4,7 @@
 
 * 리얼포포
 
-
+![alt text](readme_image/realpawpaw.jpg)
 
 ## 프로젝트 소개
 
@@ -28,7 +28,7 @@
 
 * 경기도: 2024년 11월부터 **폐업 > 개업**. 올해 1분기 폐업률은 근 6년 중 최고치(2.85%)
 
-![alt text](image-3.png)
+![alt text](readme_image/image-3.png)
 
 ### 원인은?
 
@@ -210,9 +210,9 @@ df = df1.merge(
 
   * 폐업률 기준 이진 분류 시 비대칭적 데이터 → 클래스 불균형 존재 (정상:폐업 ≒ 4:1)
 
-![alt text](image-2.png)
+![alt text](readme_image/image-2.png)
 
-![alt text](image-4.png)
+![alt text](readme_image/image-4.png)
 
 ### 데이터 전처리
 
@@ -242,7 +242,7 @@ df = df1.merge(
 
 #### Feature Importance
 
-![alt text](image-5.png)
+![alt text](readme_image/mage-5.png)
 
 **개업률..? 점포수..? 일단 넘어갑시다..** 
 
@@ -271,11 +271,11 @@ df = df1.merge(
 
 ## App 시연
 
-![alt text](image-6.png)
+![alt text](readme_image/image-6.png)
 
-![alt text](image-7.png)
+![alt text](readme_image/image-7.png)
 
-![alt text](image-8.png)
+![alt text](readme_image/image-8.png)
 
 ## 결론
   
