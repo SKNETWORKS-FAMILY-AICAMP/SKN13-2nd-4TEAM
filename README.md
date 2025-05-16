@@ -56,6 +56,23 @@
  
 <h3 align="center"><b>폐업 분류 예측 App 개발!!</b></h3>
 
+## 디렉토리 구성도
+
+```
+SKN13-2nd-4TEAM
+├── app.py # Streamlit 앱 코드
+├── data
+│ ├── expected_sales # 추정 매출 원본 CSV
+│ ├── the_number_of_shops # 점포수 관련 원본 CSV
+│ └── datasets # 학습/테스트 데이터셋 (X_train 등)
+├── modelings # 학습된 모델 및 튜닝 결과 저장
+├── preprocessing # 데이터 전처리코드
+├── readme_image # README 이미지
+├─── 산출물 # 데이터, 모델학습 결과서
+│ └── best # 학습킨 모델 `.joblib` 파일
+└── README.md # 프로젝트 개요 문서
+```
+
 ## 기술 스택
 
 ### 프로그래밍 언어
