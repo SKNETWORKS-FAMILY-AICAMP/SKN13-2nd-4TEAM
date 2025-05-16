@@ -4,12 +4,10 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 import seaborn as sns
-import folium
-from streamlit_folium import st_folium
 import joblib
 
 st.set_page_config(page_title="📉 폐업 위험 예측 시스템", layout="wide")
-plt.rcParams['font.family'] = 'Nanum Gothic'
+plt.rcParams['font.family'] = 'Malgun Gothic'
 plt.rcParams['axes.unicode_minus'] = False
 
 @st.cache_resource
