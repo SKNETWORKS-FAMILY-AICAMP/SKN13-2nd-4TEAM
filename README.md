@@ -2,15 +2,24 @@
 
 ## 팀 소개
 
-* 리얼포포
+### 리얼포포
 
 ![alt text](readme_image/realpawpaw.jpg)
+
+---
+
+![image](https://github.com/user-attachments/assets/eb82c3f0-b2f9-45be-b5fb-bdf097460e5d)
+| 기원준                     | 이명인                     | 이재범                     | 홍성의                     |
+|----------------------------|----------------------------|----------------------------|----------------------------|
+| App 개발, Baseline 모델 탐색 | 하이퍼파라미터 튜닝           | 전처리                     | 성능 평가                  |
+
+
 
 ## 프로젝트 소개
 
 * 기간: 2025.05.15. - 2025.05.16.
 
-* 내용: 서울특별시 상권, 업종 별 폐업 분류 예측 및 솔루션 제공 App 개발
+* 내용: 서울특별시 상권, 업종 별 폐업 분류 예측 App 개발
 
 * 기대 효과: 폐업에 영향을 주는 요인 분석, 창업 지원 및 자영업 지원 사업에 인사이트 제공
 
@@ -32,6 +41,8 @@
 
 ### 원인은?
 
+![image](https://github.com/user-attachments/assets/5384e8e8-2922-44d9-b0b9-892572a53ee0)
+
 * **사업부진**
 
 * 업계 전반의 **비용 구조 악화**
@@ -43,7 +54,24 @@
 
 : 특정 상권, 특정 업종의 데이터들 중 **매출액** 기반으로 폐업을 예측해볼 수 있지 않을까?
  
-<h3 align="center"><b>폐업 분류 예측 모델 및 솔루션 제공 App 개발!!</b></h3>
+<h3 align="center"><b>폐업 분류 예측 App 개발!!</b></h3>
+
+## 디렉토리 구성도
+
+```
+SKN13-2nd-4TEAM
+├── app.py # Streamlit 앱 코드
+├── data
+│ ├── expected_sales # 추정 매출 원본 CSV
+│ ├── the_number_of_shops # 점포수 관련 원본 CSV
+│ └── datasets # 학습/테스트 데이터셋 (X_train 등)
+├── modelings # 학습된 모델 및 튜닝 결과 저장
+├── preprocessing # 데이터 전처리코드
+├── readme_image # README 이미지
+├─── 산출물 # 데이터, 모델학습 결과서
+│ └── best # 학습킨 모델 `.joblib` 파일
+└── README.md # 프로젝트 개요 문서
+```
 
 ## 기술 스택
 
@@ -89,7 +117,7 @@
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
 ![Discord](https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white)
 
-## 연구 방법
+## ✒️ 연구 방법
 
 1. 탐색적 데이터 분석
 2. 데이터 전처리
@@ -124,8 +152,8 @@
 | 주말_매출_금액_건수(int64)               |                                                                      |
 | 일요일_매출_금액(int64)                   |                                                                      |
 | 일요일_매출_금액_건수(int64)             |                                                                      |
-| 시간대_XX~XX_매출_금액(int64)            | 00~06시, 07~11시, 11~14시, 14~17시, 17~21시, 21~24시                  |
-| 시간대_XX~XX_매출_금액_건수(int64)       | 00~06시, 07~11시, 11~14시, 14~17시, 17~21시, 21~24시                  |
+| 시간대_XX~XX_매출_금액(int64)            | 00-06시, 07-11시, 11-14시, 14-17시, 17-21시, 21-24시                  |
+| 시간대_XX~XX_매출_금액_건수(int64)       | 00-06시, 07-11시, 11-14시, 14-17시, 17-21시, 21-24시                  |
 | 남성_매출_금액(int64)                     |                                                                      |
 | 남성_매출_금액_건수(int64)               |                                                                      |
 | 여성_매출_금액(int64)                     |                                                                      |
@@ -230,6 +258,8 @@ df = df1.merge(
 
 **주요 평가 지표**: `Recall`(재현율) 실제로 폐업 위기에 있는 사람을 얼마나 잘 골라내고 있는가.
 
+#### Recall 0.85↑인 모델을 찾아보자
+
 #### Baseline Model Training
 
 | 모델            | 정확도   | ROC-AUC | 폐업 Recall | 폐업 Precision | F1-score | 모델 특징                           |
@@ -250,9 +280,11 @@ df = df1.merge(
 
 **개업률..? 점포수..? 일단 넘어갑시다..** 
 
-#### -> CatBoostClassifier & RandomForestClassifier!
+#### -> CatBoostClassifier!
 
 #### Hyperparameter Tuning
+
+**Goal: Recall 0.90 UP!!**
 
 - 튜닝 도구: `GridSearchCV`
 - 교차검증: 3-Fold
@@ -266,11 +298,8 @@ df = df1.merge(
   - iterations: 300
   - class_weights: {0:1, 1:5}
 
-| 지표        | 값       |
-|-------------|----------|
-| Accuracy    | 약 0.78  |
-| Recall      | **약 0.85** ✅ |
-| F1-score    | 약 0.78  |
+![image](https://github.com/user-attachments/assets/41ab8401-c92e-4aa1-93a9-4c95c0f18dec)
+
 
 
 ## App 시연
@@ -282,8 +311,12 @@ df = df1.merge(
 ![alt text](readme_image/image-8.png)
 
 ## 결론
+
+### 1. 연구결과
   
-* 최종 모델: **CatBoostClassifier(폐업 Recall 기준 약 85%)**로 실제 폐업 가능성이 있는 사업자를 분류하는 데 우수한 성능을 보임.
+#### 최종 모델: CatBoostClassifier(폐업 Recall 기준 약 93%)
+
+* 실제 폐업 가능성이 있는 사업자를 분류하는 데 우수한 성능을 보임.
 
 * 매출액이 폐업 여부에 가장 큰 영향을 미칠 것이라 예상 
 
@@ -293,7 +326,7 @@ df = df1.merge(
 
 ---
 
-### 🌟 2. 기대효과
+### 2. 기대효과
 
 1. **정책 기반 창업 지원 강화**  
    - 고위험 상권·업종에 대한 정책적 사전 개입 가능  
@@ -309,7 +342,23 @@ df = df1.merge(
 
 ## 한 줄 회고
 
+* 기원준: 딥러닝과 머신러닝의 차이점 / github "Legend Push"
+
+* 이명인: 프로젝트하면서 머신러닝에 대해 조금 알게 된거같으면서 더 멀게 느껴지는거 같다
+
+* 이재범: 지나가던 빅데이터분석기사입니다. 마저 지나갈게요...!! 아직도 숙련도가 많이 부족하다는 것을 깨달았습니다. 머릿속에 들어있는 것은 나름 좀 있는 것 같은데, 실제 공공 데이터를 구해서 서비스를 구현하려 하니 어려움이 살짝있었습니다🫠
+
+* 홍성의
+
 ## References
 
-[1] 경총 보고
-[2] https://biz.heraldcorp.com/article/10481988?ref=naver
+[1] 한국경영자총협회, 2025-01-06, [최근 폐업사업자 특징과 시사점](https://eiec.kdi.re.kr/policy/domesticView.do?ac=0000191175)
+
+[2] 헤럴드경제, 2025-05-07, [자영업 위기 현실로...1분기 음식점 폐업률, 개업률 첫 역전](https://biz.heraldcorp.com/article/10481988?ref=naver)
+
+[3] 국세통계포털, [폐업자 현황Ⅱ(연령, 성, 지역)](https://tasis.nts.go.kr/websquare/websquare.html?w2xPath=/cm/index.xml)
+
+[4] 오마이뉴스, 2025-02-24, ['폐업률 160% 충격' 서울 은평구, 문 닫는 가게가 더 많다](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003105867&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+
+[5] 경기도시장상권진흥원, 2025-05-07, [소상공인 경제이슈 브리프 2025 Vol.04](https://www.gmr.or.kr/base/board/read?boardManagementNo=6&boardNo=9639&menuLevel=2&menuNo=19#)
+ 
