@@ -14,7 +14,7 @@ plt.rcParams['axes.unicode_minus'] = False
 
 @st.cache_resource
 def load_code_name_dicts():
-    return joblib.load("/Users/giwonjun/Desktop/boot/02_proj_ML/SKN13-2nd-4TEAM/산출물/best/dict_trans.joblib")
+    return joblib.load("SKN13-2nd-4TEAM/산출물/best/dict_trans.joblib")
 
 code_name_dicts = load_code_name_dicts()
 
@@ -64,8 +64,8 @@ def add_korean_names(df):
     return df
 
 MODEL_PATHS = {
-    "CatBoost": r"/Users/giwonjun/Desktop/boot/02_proj_ML/SKN13-2nd-4TEAM/산출물/best/cb_model.joblib",
-    "Random Forest": r"/Users/giwonjun/Desktop/boot/02_proj_ML/SKN13-2nd-4TEAM/산출물/best/rf_model.joblib"
+    "CatBoost": r"SKN13-2nd-4TEAM/산출물/best/cb_model.joblib",
+    "Random Forest": r"SKN13-2nd-4TEAM/산출물/best/rf_model.joblib"
 }
 
 DROP_COLS = [
