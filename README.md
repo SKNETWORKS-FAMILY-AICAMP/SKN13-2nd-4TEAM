@@ -6,11 +6,16 @@
 
 ![alt text](readme_image/realpawpaw.jpg)
 
+| ![](사진1) | ![](사진2) | ![](사진3) | ![](사진4) |
+|-----------|------------|------------|------------|
+| 이름1     | 이름2      | 이름3      | 이름4      |
+| 역할1     | 역할2      | 역할3      | 역할4      |
+
 ## 프로젝트 소개
 
 * 기간: 2025.05.15. - 2025.05.16.
 
-* 내용: 서울특별시 상권, 업종 별 폐업 분류 예측 및 솔루션 제공 App 개발
+* 내용: 서울특별시 상권, 업종 별 폐업 분류 예측 App 개발
 
 * 기대 효과: 폐업에 영향을 주는 요인 분석, 창업 지원 및 자영업 지원 사업에 인사이트 제공
 
@@ -32,6 +37,8 @@
 
 ### 원인은?
 
+![image](https://github.com/user-attachments/assets/5384e8e8-2922-44d9-b0b9-892572a53ee0)
+
 * **사업부진**
 
 * 업계 전반의 **비용 구조 악화**
@@ -43,7 +50,7 @@
 
 : 특정 상권, 특정 업종의 데이터들 중 **매출액** 기반으로 폐업을 예측해볼 수 있지 않을까?
  
-<h3 align="center"><b>폐업 분류 예측 모델 및 솔루션 제공 App 개발!!</b></h3>
+<h3 align="center"><b>폐업 분류 예측 App 개발!!</b></h3>
 
 ## 기술 스택
 
@@ -230,6 +237,8 @@ df = df1.merge(
 
 **주요 평가 지표**: `Recall`(재현율) 실제로 폐업 위기에 있는 사람을 얼마나 잘 골라내고 있는가.
 
+#### Recall 0.85↑인 모델을 찾아보자
+
 #### Baseline Model Training
 
 | 모델            | 정확도   | ROC-AUC | 폐업 Recall | 폐업 Precision | F1-score | 모델 특징                           |
@@ -250,9 +259,11 @@ df = df1.merge(
 
 **개업률..? 점포수..? 일단 넘어갑시다..** 
 
-#### -> CatBoostClassifier & RandomForestClassifier!
+#### -> CatBoostClassifier!
 
 #### Hyperparameter Tuning
+
+**Goal: Recall 90 UP
 
 - 튜닝 도구: `GridSearchCV`
 - 교차검증: 3-Fold
@@ -266,11 +277,8 @@ df = df1.merge(
   - iterations: 300
   - class_weights: {0:1, 1:5}
 
-| 지표        | 값       |
-|-------------|----------|
-| Accuracy    | 약 0.78  |
-| Recall      | **약 0.85** ✅ |
-| F1-score    | 약 0.78  |
+![image](https://github.com/user-attachments/assets/41ab8401-c92e-4aa1-93a9-4c95c0f18dec)
+
 
 
 ## App 시연
@@ -282,8 +290,10 @@ df = df1.merge(
 ![alt text](readme_image/image-8.png)
 
 ## 결론
+
+### 1. 연구결과
   
-* 최종 모델: **CatBoostClassifier(폐업 Recall 기준 약 85%)**로 실제 폐업 가능성이 있는 사업자를 분류하는 데 우수한 성능을 보임.
+* 최종 모델: CatBoostClassifier(폐업 Recall 기준 약 85%)로 실제 폐업 가능성이 있는 사업자를 분류하는 데 우수한 성능을 보임.
 
 * 매출액이 폐업 여부에 가장 큰 영향을 미칠 것이라 예상 
 
@@ -293,7 +303,7 @@ df = df1.merge(
 
 ---
 
-### 🌟 2. 기대효과
+### 2. 기대효과
 
 1. **정책 기반 창업 지원 강화**  
    - 고위험 상권·업종에 대한 정책적 사전 개입 가능  
@@ -311,5 +321,9 @@ df = df1.merge(
 
 ## References
 
-[1] 경총 보고
-[2] https://biz.heraldcorp.com/article/10481988?ref=naver
+[1] 한국경영자총협회, 2025-01-06, [최근 폐업사업자 특징과 시사점](https://eiec.kdi.re.kr/policy/domesticView.do?ac=0000191175)
+[2] 헤럴드경제, 2025-05-07, [자영업 위기 현실로...1분기 음식점 폐업률, 개업률 첫 역전](https://biz.heraldcorp.com/article/10481988?ref=naver)
+[3] 국세통계포털, [폐업자 현황Ⅱ(연령, 성, 지역)](https://tasis.nts.go.kr/websquare/websquare.html?w2xPath=/cm/index.xml)
+[4] 오마이뉴스, 2025-02-24, ['폐업률 160% 충격' 서울 은평구, 문 닫는 가게가 더 많다](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003105867&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news)
+[5] 경기도시장상권진흥원, 2025-05-07, [소상공인 경제이슈 브리프 2025 Vol.04](https://www.gmr.or.kr/base/board/read?boardManagementNo=6&boardNo=9639&menuLevel=2&menuNo=19#)
+ 
