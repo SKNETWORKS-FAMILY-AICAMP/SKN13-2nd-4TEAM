@@ -69,7 +69,7 @@ SKN13-2nd-4TEAM
 ├── preprocessing # 데이터 전처리코드
 ├── readme_image # README 이미지
 ├─── 산출물 # 데이터, 모델학습 결과서
-│ └── best # 학습킨 모델 `.joblib` 파일
+│ └── best # 학습시킨 모델 `.joblib` 파일
 └── README.md # 프로젝트 개요 문서
 ```
 
