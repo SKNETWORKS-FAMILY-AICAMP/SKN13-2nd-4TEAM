@@ -5,11 +5,11 @@
 
 ### 리얼포포
 
-![alt text](readme_image/realpawpaw.jpg)
+<!-- ![alt text](readme_image/realpawpaw.jpg) -->
 
 ---
 
-![image](https://github.com/user-attachments/assets/eb82c3f0-b2f9-45be-b5fb-bdf097460e5d)
+<!-- ![image](https://github.com/user-attachments/assets/eb82c3f0-b2f9-45be-b5fb-bdf097460e5d) -->
 | 기원준                     | 이명인                     | 이재범                     | 홍성의                     |
 |----------------------------|----------------------------|----------------------------|----------------------------|
 | App 개발, Baseline 모델 탐색 | 하이퍼파라미터 튜닝           | EDA&전처리                     | 성능 평가                  |
